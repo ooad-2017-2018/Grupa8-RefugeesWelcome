@@ -1,4 +1,7 @@
 # **Grupa8-RefugeesWelcome**
+
+![Alt Text](https://media.giphy.com/media/l4JyOCNEfXvVYEqB2/giphy.gif)
+
 ## :dancer:  **Članovi grupe:**
 
 1. Ilma Čengić
