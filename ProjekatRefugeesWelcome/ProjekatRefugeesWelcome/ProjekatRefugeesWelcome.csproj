@@ -107,6 +107,8 @@
     <None Include="ProjekatRefugeesWelcome_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\refugees-welcome %281%29.png" />
+    <Content Include="Assets\registruj me.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
