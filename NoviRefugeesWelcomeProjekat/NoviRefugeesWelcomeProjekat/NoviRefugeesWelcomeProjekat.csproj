@@ -111,6 +111,9 @@
     <Compile Include="View\Obrazovanje.xaml.cs">
       <DependentUpon>Obrazovanje.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Onama.xaml.cs">
+      <DependentUpon>Onama.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TrzisteRada.xaml.cs">
       <DependentUpon>TrzisteRada.xaml</DependentUpon>
     </Compile>
@@ -121,8 +124,8 @@
     <Compile Include="View\Sektor.xaml.cs">
       <DependentUpon>Sektor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Zdravstvo1.xaml.cs">
-      <DependentUpon>Zdravstvo1.xaml</DependentUpon>
+    <Compile Include="View\Zdravstvo.xaml.cs">
+      <DependentUpon>Zdravstvo.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +141,8 @@
     <Content Include="Assets\nudza.jpg" />
     <Content Include="Assets\ok.jpg" />
     <Content Include="Assets\okk.jpg" />
+    <Content Include="Assets\Onama.png" />
+    <Content Include="Assets\pozadina.jpg" />
     <Content Include="Assets\sejla.jpg" />
     <Content Include="Assets\sektor.jpg" />
     <Content Include="Properties\Default.rd.xml" />
@@ -162,6 +167,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Onama.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TrzisteRada.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,12 +183,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Zdravstvo1.xaml">
+    <Page Include="View\Zdravstvo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Mobile.Client">
+      <Version>4.0.2</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.4</Version>
     </PackageReference>

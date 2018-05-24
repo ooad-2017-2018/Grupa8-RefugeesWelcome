@@ -56,7 +56,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="1">
+        <ScrollViewer Grid.Row="1" ViewChanged="ScrollViewer_ViewChanged">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -75,25 +75,25 @@
                 <StackPanel Name="Second" Grid.Row="1" Margin="20,20,0,0">
 
                 </StackPanel>
-                <StackPanel Name="Third" Grid.Row="2" Margin="0,30,0,0">
-                    <TextBlock Text=" Refugees Welcome" HorizontalAlignment="Center" Foreground ="White" FontWeight="Bold" ></TextBlock>
-                    <Image Source="Assets/nudza.jpg"  HorizontalAlignment="Stretch" Width="500" Height="170"  Margin="0 20 0 0"></Image>
-                    <Button Name="SearchButton" Content="O nama" Foreground ="White" FontWeight="Bold"  HorizontalAlignment="Center" Margin="0,10,10,0"></Button>
+                <StackPanel Name="Third" Grid.Row="2" Margin="0,100,0,0">
+                    <TextBlock Text=" Refugees Welcome"  HorizontalAlignment="Center" Foreground ="White" FontWeight="Bold" ></TextBlock>
                 </StackPanel>
 
-                <StackPanel Name="Fourth" Grid.Row="2" Margin="20,20,0,0">
+                <StackPanel Name="Fourth" Grid.Row="2" Margin="200,0,0,0">
                     <TextBlock Text="DIRECT LOGIN"  Foreground ="White" FontWeight="Bold" HorizontalAlignment="Stretch" ></TextBlock>
                     <TextBlock Text="USERNAME" Foreground ="White" Margin="0,10,0,0" HorizontalAlignment="Stretch" ></TextBlock>
-                    <TextBlock Text="PASSWORD" Foreground ="White" Margin="0,10,0,0"  HorizontalAlignment="Stretch"></TextBlock>
+                    <TextBlock Text="PASSWORD"  Foreground ="White" Margin="0,10,0,0"  HorizontalAlignment="Stretch"></TextBlock>
                 </StackPanel>
 
-                <StackPanel Name="Fifth" Grid.Row="2" Grid.Column="1" Margin="20,20,0,0">
+                <StackPanel Name="Fifth" Grid.Row="2" Grid.Column="1" Margin="-200,0,0,0">
                     <TextBox x:Name="txtUsername" Grid.Column="1" Grid.Row="2"  Width="400" Height="40"  HorizontalAlignment="Stretch" Margin="50,12,50,0" TextChanged="TextBox_TextChanged"></TextBox>
-                    <TextBox x:Name="txtPassword" Grid.Column="1" Grid.Row="2"  Width="400" Height="40" HorizontalAlignment="Stretch"  Margin="50,12,50,0"></TextBox>
+                    <PasswordBox x:Name="txtPassword" Grid.Column="1" Grid.Row="2"  Width="400" Height="40" HorizontalAlignment="Stretch"  Margin="50,12,50,0" InputScope="Password" ></PasswordBox>
+                    <Button Name="LOGIN" Content="LOGIN" Grid.Row="1" Grid.Column="2"  Foreground ="White" FontWeight="Bold"  HorizontalAlignment="Center" Margin="500,-90,10,0" Click="LOGIN_Click" Loaded="PristupniPodaci_Load" Background="#33834545"></Button>
                 </StackPanel>
 
-                <StackPanel Name="Sixth" Grid.Row="2" Grid.Column="2" Margin="20,20,0,0">
-                    <Button Name="LOGIN" Content="LOGIN" Grid.Row="1" Grid.Column="2" FontSize="40" Foreground ="White" FontWeight="Bold"  HorizontalAlignment="Center" Margin="0,30,10,0" Click="LOGIN_Click" Loaded="PristupniPodaci_Load" Background="#33834545"></Button>
+                <StackPanel Name="Sixth" Grid.Row="1" Grid.Column="2" Margin="20,20,0,0">
+                    <Image Source="Assets/nudza.jpg"  HorizontalAlignment="Stretch" Width="700" Height="300"  Margin="0 -40 0 0"></Image>
+                    <Button Name="SearchButton" Content="O nama" Foreground ="White"  FontWeight="Bold"  HorizontalAlignment="Center" Margin="0,35,10,0" Click="SearchButton_Click"></Button>
                 </StackPanel>
 
             </Grid>

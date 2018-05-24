@@ -70,97 +70,101 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Name="First" Margin="20,20,0,0" Grid.RowSpan="3">
-
-                </StackPanel>
-
-                <StackPanel Name="Second" Grid.Row="1" Margin="20,100,0,0" Grid.RowSpan="3">
-                    <TextBlock Text=" REGISTRACIJA" 
-        HorizontalAlignment="Stretch"  FontWeight="ExtraBold" Margin="10,80,0,0" ></TextBlock>
+                    <TextBlock Text=" REGISTRACIJA" FontSize="20"
+        FontWeight="ExtraBold" Margin="10,80,0,0" HorizontalAlignment="Center" />
 
                     <Image Source="Assets/ref.png" 
-               Width="450" Height="170" Grid.Row="0" Grid.Column="2" Margin="0,80,0,0"></Image>
-
+               Width="450" Height="170" Grid.Row="0" Grid.Column="2" Margin="0,80,0,0"/>
                     <TextBlock Text="Ime:"
                      HorizontalAlignment="Stretch" FontSize="20"
-                    Margin="50,-200,10,200"></TextBlock>
+                    Margin="50,-200,10,200"/>
                     <TextBlock Text="Prezime:" FontSize="20"
                        HorizontalAlignment="Stretch" 
-                       Margin="30,-180,0,200"></TextBlock>
-                    <TextBlock Text="Godina rodjenja:" FontSize="20"
+                       Margin="50,-180,0,200"/>
+                    <TextBlock Text="Datum rođenja:" FontSize="20"
                        HorizontalAlignment="Stretch"
-                       Margin="-40,-170,0,200"></TextBlock>
+                       Margin="50,-180,0,200"/>
                     <TextBlock Text="JMBG:" FontSize="20"
                        HorizontalAlignment="Stretch" 
-                       Margin="50,-160,0,200"></TextBlock>
+                       Margin="50,-180,0,200"/>
                     <TextBlock Text="Spol:"  FontSize="20"
-                       HorizontalAlignment="Right" 
-                       Margin="0,-160,0,200" Width="430"></TextBlock>
+                       HorizontalAlignment="Left" 
+                       Margin="50,-180,0,200" Width="430"/>
                     <TextBlock Text="Datum prijema:" FontSize="20"
                        HorizontalAlignment="Stretch" 
-                       Margin="-40,-170,0,200"></TextBlock>
+                       Margin="50,-180,0,200"/>
+
                 </StackPanel>
-                <StackPanel Name="Third" Grid.Row="2" Margin="0,130,0,0" Grid.RowSpan="3">
+
+                <StackPanel Name="Second" Grid.Row="1" Margin="20,60,0,0" Grid.RowSpan="3">
                     <TextBox Name="ime"
-             Width="300" Height="40"
-            FontSize="20" Foreground ="Blue" FontWeight="Bold"
-          Margin="175,110,165,20" HorizontalAlignment="Stretch" />
+             Width="250" Height="40"
+             Foreground ="Blue" FontWeight="Bold"
+          Margin="-100,110,165,20" HorizontalAlignment="Stretch" />
 
                     <TextBox Name="prezime"
-         Width="300" Height="40"
-        FontSize="20" Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
-        Margin="100,0,100,280" ></TextBox>
+         Width="250" Height="40"
+         Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
+        Margin="-160,-8,100,280" ></TextBox>
 
-                    <TextBox Name="gr"
-         Width="300" Height="40"
-        FontSize="20" Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
-        Margin="20,-255,20,250" ></TextBox>
+                    <CalendarDatePicker Name="gr"
+         Width="250" Height="40"
+         Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
+        Margin="-258,-309,0,200"/>
 
                     <TextBox Name="JMBG"
-         Width="300" Height="40"
-        FontSize="20" Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
-        Margin="0,-370,0,20" ></TextBox>
+         Width="250" Height="40"
+         Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
+        Margin="-260,-416,0,20" ></TextBox>
 
                     <TextBox Name="spol"
-         Width="300" Height="40"
-        FontSize="20" Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
-        Margin="0,-140,0,200" ></TextBox>
+         Width="250" Height="40"
+         Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
+        Margin="-256,-190,0,200" ></TextBox>
+
+                    <CalendarDatePicker Name="prijem"
+         Width="250" Height="40"
+         Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
+        Margin="-253,-187,0,200"/>
 
 
-                    <TextBox Name="prijem"
-         Width="300" Height="40"
-        FontSize="20" Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
-        Margin="10,-170,0,200" ></TextBox>
                     <Button Name="Button1" Content="Registruj"
         FontSize="20" Foreground ="Black" FontWeight="Bold"  HorizontalAlignment="Center"
-        Margin="100,-200,0,0" Click="Button1_Click"></Button>
-
+        Margin="-260,-330,0,0" Click="Button1_Click"></Button>
+                </StackPanel>
+                <StackPanel Name="Third" Grid.Row="2" Margin="0,130,0,0" Grid.RowSpan="3">
+                    <TextBlock Text="PRONAĐI IZBJEGLICU" FontSize="20"
+        FontWeight="ExtraBold" Margin="10,80,0,0" HorizontalAlignment="Center" />
+                    <TextBlock Text="JMBG:" FontSize="20"
+                       HorizontalAlignment="Stretch" 
+                       Margin="100,50,0,200"/>
+                    <TextBox Name="jmbg"
+         Width="250" Height="40"
+         Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
+        Margin="30,-416,0,20" ></TextBox>
+                    <Button Name="Button3"
+                Content="OBRISI IZ ARHIVE"
+        FontSize="20" Foreground ="Black" FontWeight="Bold"  HorizontalAlignment="Center"
+        Margin="36,-300,0,0" Click="Button3_Click"></Button>
                 </StackPanel>
 
-                <StackPanel Name="Fourth" Grid.Row="2" Margin="20,20,0,0" >
-                    <TextBlock Text="Zahtjev za boravak u zemlji" Grid.Row="2" Grid.Column="1"
-          HorizontalAlignment="Stretch" FontSize="20" FontWeight="Bold" 
-          Margin="30,500,0,0"></TextBlock>
+                <StackPanel Name="Fourth" Grid.Row="2" Margin="50,200,0,0" >
 
-                    <Button Name="SearchButton"  Content="POSALJI"
+                    <TextBlock Text="ZAHTJEV ZA BORAVAK U ZEMLJI" FontSize="20" Grid.Row="2" Grid.Column="2"
+          HorizontalAlignment="Stretch" FontWeight="Bold" 
+          Margin="30,100,0,0"/>
+                    <Button Name="button"  Content="POŠALJI"
         FontSize="20" Foreground ="Black" FontWeight="Bold"  HorizontalAlignment="Center"
-        Margin="-30,30,0,0" Click="SearchButton_Click"></Button>
-
-                    <Button  Name="Izadji" Content="IZADJI"
-        FontSize="20" Foreground ="Black" FontWeight="Bold"  HorizontalAlignment="Center"
-        Margin="-30,130,0,0" Click="SearchButton_Click"></Button>
+        Margin="-200,20,0,0"></Button>
                 </StackPanel>
 
                 <StackPanel Name="Fifth" Grid.Row="3" Grid.Column="2" Margin="-90,-20,0,0" Grid.RowSpan="2">
-                    <Button Name="Button2"  Content="Azuriraj"
+                    <Button Name="Button2"  Content="IZLAZ"
         FontSize="20" Foreground ="Black" FontWeight="Bold"  HorizontalAlignment="Center"
-        Margin="0,20,0,0"></Button>
+        Margin="150,0,0,0"></Button>
 
-                    <Button Name="Button3"
-                Content="Obrisi"
-        FontSize="20" Foreground ="Black" FontWeight="Bold"  HorizontalAlignment="Center"
-        Margin="200,-40,0,0" Click="Button3_Click"></Button>
+                  
                 </StackPanel>
-
 
 
             </Grid>

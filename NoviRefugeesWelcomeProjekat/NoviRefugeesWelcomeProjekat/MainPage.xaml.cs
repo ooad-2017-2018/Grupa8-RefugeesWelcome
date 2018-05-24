@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System.Text;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -26,6 +16,8 @@ namespace NoviRefugeesWelcomeProjekat
         public MainPage()
         {
             this.InitializeComponent();
+            txtPassword.PasswordChar = "*";
+
         }
 
 
@@ -34,7 +26,7 @@ namespace NoviRefugeesWelcomeProjekat
             bool postoji = false;
             for (int i = 0; i < ViewModel.Sistem.korisnici.Count; i++)
             {
-                if (ViewModel.Sistem.korisnici[i].Username == txtUsername.Text && ViewModel.Sistem.korisnici[i].Password == txtPassword.Text)
+                if (ViewModel.Sistem.korisnici[i].Username == txtUsername.Text && ViewModel.Sistem.korisnici[i].Password == txtPassword.Password)
                     postoji = true;
             }
             if (txtUsername != null && txtPassword != null && postoji == true)
@@ -46,9 +38,10 @@ namespace NoviRefugeesWelcomeProjekat
                 var dialog = new MessageDialog("Pogrešni pristupni podaci. Neuspjesna prijava!");
                 await dialog.ShowAsync();
                 txtUsername.Text = "";
-                txtPassword.Text = "";
+                txtPassword.Password = "";
             }
         }
+        
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -60,6 +53,16 @@ namespace NoviRefugeesWelcomeProjekat
             Model.Korisnik k = new Model.Korisnik("izbjeglica", "rw"); //hardkodirali šifru i password
             Model.IzbjeglicaOstanakUZemlji iz = new Model.IzbjeglicaOstanakUZemlji("sejla","pljakic", DateTime.Parse("01.01.1997"), "123456789","zensko",DateTime.Parse("01.01.1997"));
             ViewModel.Sistem.korisnici.Add(k);
+        }
+
+        private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        {
+
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(View.Onama));
         }
     }
 }

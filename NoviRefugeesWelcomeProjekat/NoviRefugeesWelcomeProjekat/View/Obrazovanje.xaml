@@ -54,8 +54,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="1" ViewChanged="ScrollViewer_ViewChanged" HorizontalAlignment="Left" Margin="0,-22,0,10">
+        <ScrollViewer Grid.Row="1"  HorizontalAlignment="Left" Margin="0,-22,0,10">
             <Grid>
+                
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />

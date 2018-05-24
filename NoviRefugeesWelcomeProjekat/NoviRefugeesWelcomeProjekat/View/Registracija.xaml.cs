@@ -33,24 +33,41 @@ namespace NoviRefugeesWelcomeProjekat
           
         }
 
-        private void Button1_Click(object sender, RoutedEventArgs e)
+        private async void  Button1_Click(object sender, RoutedEventArgs e)
         {
-            Model.IzbjeglicaOstanakUZemlji iz = new Model.IzbjeglicaOstanakUZemlji(ime.Text, prezime.Text, DateTime.Parse(gr.Text), JMBG.Text, spol.Text, DateTime.Parse(prijem.Text));
-            ViewModel.Sistem.RegistrujIzbjeglicu(iz);
-            ime.Text = "";
-            prezime.Text = "";
-            gr.Text="";
-            JMBG.Text = "";
-            spol.Text = "";
-            prijem.Text="";
+            if (ime.Text == " " || prezime.Text == " " || gr.Date == null || spol.Text == " " || prijem.Date == null)
+            {
+                var dialog = new MessageDialog("Molimo Vas popunite svako polje!");
+                await dialog.ShowAsync();
+            }
+            else
+            {
+
+                Model.IzbjeglicaOstanakUZemlji iz = new Model.IzbjeglicaOstanakUZemlji(ime.Text, prezime.Text,gr.Date.Value.UtcDateTime, JMBG.Text, spol.Text,prijem.Date.Value.UtcDateTime);
+                ViewModel.Sistem.RegistrujIzbjeglicu(iz);
+                ime.Text = "";
+                prezime.Text = "";
+                JMBG.Text = "";
+                spol.Text = "";
+            }
+         
         }
 
-        private void Button3_Click(object sender, RoutedEventArgs e)
+        private async void Button3_Click(object sender, RoutedEventArgs e)
         {
-            Model.IzbjeglicaOstanakUZemlji iz = new Model.IzbjeglicaOstanakUZemlji(ime.Text, prezime.Text, DateTime.Parse(gr.Text), JMBG.Text, spol.Text, DateTime.Parse(prijem.Text));
-            ViewModel.Sistem.ObrisiIzbjeglicu(iz);
+            if (jmbg.Text == " ")
+            {
+                var dialog = new MessageDialog("Molimo Vas unesite JMBG!");
+                await dialog.ShowAsync();
+                //metoda koja pretrazuje izbjeglicu, skontati fino taj dio
+            }
+            else
+            {
+                Model.IzbjeglicaOstanakUZemlji iz = new Model.IzbjeglicaOstanakUZemlji(ime.Text, prezime.Text, Convert.ToDateTime(gr.Date), JMBG.Text, spol.Text, Convert.ToDateTime(prijem.Date));
+                ViewModel.Sistem.ObrisiIzbjeglicu(iz);
+            }
         }
-
+   
         private async void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             var dialog1 = new MessageDialog("Zahtjev uspjesno dodan!");
