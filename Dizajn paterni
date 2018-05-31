@@ -1,0 +1,62 @@
+
+Singleton patern
+
+  Uloga Singleton paterna je da osigura da se klasa može instancirati samo jednom i da osigura globalni pristup kreiranoj instanci klase.
+Postoji više objekata koje je potrebno samo jednom instancirati i nad kojim je potrebna jedinstvena kontrola pristupa.
+	Instanciranje više nego jednom navedenih objekata mogu se prouzrokovati problemi kao što su nekorektno ponašanje programa, neadekvantno korištenje resursa.
+Singleton patern realizujemo na način da klasa ima private statičku instancu te iste klase, da ima prazan konstruktor obični, i metodu getInstance() pri čemu se možemo odlučiti za lazy singleton. Svaka instanca vraća jednu te istu instancu čime je održana validnost.
+Nismo koristili u projektu, a ne bi ga nigdje mogli ni koristiti, jer nemamo takav specifičan tip klase sa kojom čuvamo dosta ključnih podataka vezan za aplikaciju/dio nje koje su potrebne biti private.
+
+	
+State patern 
+
+    State patern je dinamička verzija Strategy patterna gdje objekat mijenja način ponašanja na osnovu trenutnog stanja.
+Ovaj pattern smo iskoristili u našem projektu.
+	Nakon rezervacije, prilikom registracije izbjelglice dolazi do slanja zahtjeva za boravak u zemlji. 
+	Ukoliko je zahtjev odbijen, izbjeglica se obavještava i nema nikakva prava u zemlji, ukoliko je zahtjev prihvacen,izbjeglica se obavještava o tome i stiče razna prava.
+
+	Iterator patern – patern ponašanja
+
+	    Iterator patern omogucava sekvencijalni pristup elementima kolekcije bez poznavanja kako je kolekcija strukturirana.
+  Ovaj pattern se koristi kada je potrebno imati uniforman nacin pristupa bilo kojoj kolekciji.
+	Ako recimo želimo iz nekog razloga da primimo ArrayList, Array i sl., možemo iskoristiti iterator interface pomocu kojeg cemo najbolje omoguciti bolji polimorfizam.
+
+Ovaj pattern nismo iskoristili u našem projektu.
+	Ovo bi se trebalo implementirati ukoliko postoji više vrsta kolekcija u programu.
+	Što se tice našeg projekta, mi smo koristili prilikom implementacije samo liste tako da ovaj pattern nije od nekog znacaja.
+ 
+Prototype - Kreacijski patern
+Koristimo ga kada je potrebno da kreiramo nove objekte klonirajući jednu od postojećih prototip instanci (postojeći objekat). Ako je trošak kreiranja novog objekta velik i kreiranje objekta je resursno zahtjevno tada se vrši kloniranje već postojećeg objekata. Tj. možemo imati shallow i deep copy (zavisno od naše implementacije). Prototype pattern je često koristan i prilikom višestrukog korištenja podataka iz baze: Npr. Potrebno je uraditi analizu prodaje na skupu podataka iz baze.
+Potrebno je kopirati podatke iz baze podataka, enkapsulirati ih u objekat i nad njima raditi analizu. Ako je potrebno uraditi i druge analize nad istim skupom podataka nije dobra ideja ponovo pristupati bazi podataka, čitati podatke i kreirati objekat za njihovo smještanje. Ako se koristi Prototype pattern tada se objekat koji se koristi za analizu prodaje klonira i koristi za drugu analizu.
+Potrebno je da napravimo interface klasu i nju implementirati na sve tipove prototipa tj. klase koje želimo da imaju mogućnost kopiranja. Također potrebno je implementirati metodu koja vraća tip Interface-a tog istog. Prilikom korištenja metode clone uvijek ćemo pozivati super klasu tj. njenu metodu (Da bi omogućili kloniranje podataka moramo specificirati interface-u da može se klonirati, npr. da extenda klasu Cloneable).
+Nismo koristili u projektu. Dobro je koristiti ukoliko želimo unutar administracije dodati novi tip statistike koji ćemo raditi nad registrovanim izbjeglicama, možemo baš tu iskoristiti prototype pattern. Prvim api pozivom ka bazi možemo dobiti sve registrovane izbjeglice, zatim ih kloniramo za novu upotrebu.
+ 
+ Chain of Responsibility - Pattern ponašanja
+    Chain of Responsibility pattern se koristi kada imamo ograničen skup algoritama specifičnih za neku namjenu, a pri tom želimo to bez dodatnog pisanja koda tj. promjenom jednog parametra unutar nekog Handlera mi specificiramo koji algoritam će se izvršiti. Odnosno kako tok pretrage izvršavanja ide, traži se responsible klasa koja će uraditi neki algoritam koji smo mi specificirali.
+Moramo specicificirati Handler klasu pomoću koje ćemo rasporediti koji će se algoritam izvršavati za određeni izbor, interface 'Chain' koji će imati 2 metode npr. izvrsiAlgoritam() i postaviNaredniChain(). Svaka klasa koja definira neki algoritam mora imati instancu tog interface-a i mora implementirati taj sami interface, na taj način pravimo chain za određeni izbor.
+Nismo ga koristili u projektu, a možemo ga koristiti ukoliko želimo unutar administracije izabrati neki tip statistike pri čemu ćemo svaki put koristiti različit algoritam. Na ovaj način možemo uvijek dodavati nove algoritme, a promjena unutar glavnog poziva algoritma bi bila samo u nazivu algoritma koji mi hoćemo.
+
+
+Adapter pattern - Strukturalni pattern
+    Pattern možemo koristiti da omogućimo širu upotrebu već postojećih klasa kada nam je potreban drugačiji interfejs već postojeće klase, a ne želimo mijenjati postojeću klasu. Novokreirana adapter klasa služi kao posrednik između originalne klase i željenog interfejsa.
+Da možemo koristit ovaj pattern potrebno je napraviti novi interfejs Itarget (zahtjevani interfejs) kojeg implementira klasa Adapter koja prilagođava stari interfejs. Klasa Adaptee definira već postojeći interfejs kojeg prilagođavamo. U klasi ITarget definišemo metode koje treba izmijeniti. Klasa adapter implementira te metode na odgovarajući način s ciljem da se postigne zahtjevani interfejs.
+Koristili smo u projektu na način da imamo interfejs izbjeglice i kada nam je potrebno  dodati neke metode tako da ne mijenjamo samu klasu izbjeglice kao ni izvedene klase, to možemo dodati u datom interfejsu.
+
+Decorator pattern
+Osnovna namjena Decorator patterna je da omogući dinamičko dodavanje novih elemenata i funkcionalnosti postojećim objektima.
+Decorator pattern se koristi i kada postojeće klase komponenti nisu podesne za podklase, npr. nisu raspoložive ili bi rezultiralo 
+u mnogo podklasa. Objekat pri tome nezna da je urađena dekoracija što je veoma korisno za ponovnu upotrebu komponenti softverskog sistema. 
+Decorator pattern se ne oslanja na čisto nasljeđivanje prilikom dodavanja novih atributa i ponašanja. Decorator pattern nasljeđuje originalnu klasu i sadrži instancu originalne klase. Postojeći objekti se ne mijenjaju već se kreiraju novi. To se postiže sa Decorator klasom koja uključuje dva tipa relacija sa IComponent interfejsom: Decorator realizira IComponent interfejs (isprekidanim strelicama ili nasljeđivanjem),
+Decorator je povezan kompozicijom sa IComponent interfejsom. To znači da Decorator instancira jedan ili više IComponent objekata i 'decorate' objekte – uključuje nove operacije i override postojeće.
+Koristili smo u projektu Decorator pattern kako bi pruzili dodatne funkcionalnosti izvedenoj klasi a da se pri tome ne vidi razlika od bazne klase.To je slucaj sa klasama IzbjeglicaOstanakUZemlji i IzbjeglicaTransportIzZemlje gdje klasa Izbjeglica
+ 
+ Factory Method - Kreacijski pattern
+Uloga Factory Method patterna je da omogući kreiranje objekata na način da podklase odluče koju klasu instancirati. Različite podklase mogu na različite načine implementirati interfejs. Factory Method često se primjenjuje jer dopušta projektu da blisko slijedi SOLID principe. 
+Factory Method instancira odgovarajuću podklasu(izvedenu klasu) preko posebne metode na osnovu informacije od strane klijenta ili na osnovu tekućeg stanja.
+Nismo koristili u projektu. Ali, može se koristiti ako želimo da npr. klasom Karton upravlja podklasa Doktor koja će izvršiti izmjene kartona i tako omogućiti efikasan rad aplikacije.
+
+Facade patern - strukturalni patern
+Glavna primjena ovog paterna je pružanje pogleda visokog nivoa na određene podsisteme, odnosno služi za kreiranje različitih, 
+pojednostavljenih pogleda na podsistem, ovisno od potrebe. Moguće je postavljanje više fasada oko jednog ili skupa podsistema i
+kreirati više pogleda. Nismo koristili ovaj pattern. Može se koristiti ako dodamo klase koje simuliraju pogled na nas sistem u
+vidu nekog interfejsa.
