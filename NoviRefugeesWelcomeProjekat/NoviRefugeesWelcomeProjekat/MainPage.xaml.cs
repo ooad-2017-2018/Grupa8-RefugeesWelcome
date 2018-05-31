@@ -1,8 +1,22 @@
 ﻿using System;
-using System.Text;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using NoviRefugeesWelcomeProjekat.Model;
+using Microsoft.WindowsAzure.MobileServices;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -13,15 +27,34 @@ namespace NoviRefugeesWelcomeProjekat
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        IMobileServiceTable<Model.Korisnik> korisnici = App.MobileService.GetTable<Model.Korisnik>();
         public MainPage()
         {
             this.InitializeComponent();
             txtPassword.PasswordChar = "*";
-
+            
         }
-
-
-        private async void LOGIN_Click(object sender, RoutedEventArgs e)
+        private void btnSpasi_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            try
+            {
+                Korisnik k = new Korisnik
+                {
+                    Username = txtUsername.Text,
+                    Password = txtPassword.Password
+                };
+                Validacija();
+                 korisnici.InsertAsync(k);
+                //MessageDialog msgDialog = new MessageDialog("Uspješno ste unijeli korisnika.");
+                 //msgDialog.ShowAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageDialog msgDialogError = new MessageDialog("Error : " + ex.ToString());
+                 msgDialogError.ShowAsync();
+            }
+        }
+        private async void Validacija()
         {
             bool postoji = false;
             for (int i = 0; i < ViewModel.Sistem.korisnici.Count; i++)
@@ -31,6 +64,8 @@ namespace NoviRefugeesWelcomeProjekat
             }
             if (txtUsername != null && txtPassword != null && postoji == true)
             {
+                var dialog = new MessageDialog("Uspješno ste unijeli korisnika!");
+                await dialog.ShowAsync();
                 this.Frame.Navigate(typeof(Sektor));
             }
             else
@@ -40,6 +75,10 @@ namespace NoviRefugeesWelcomeProjekat
                 txtUsername.Text = "";
                 txtPassword.Password = "";
             }
+        } 
+            private async void LOGIN_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
         
 

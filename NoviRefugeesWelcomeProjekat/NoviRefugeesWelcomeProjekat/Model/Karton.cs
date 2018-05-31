@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace NoviRefugeesWelcomeProjekat.Model
 {
     public class Karton
     {
-        public List<Izbjeglica> Izbjeglice { get; set; }
+       
         public DateTime DatumIzdavanja { get; set; }
         public string Dijagnoza { get; set; }
 
@@ -16,7 +17,15 @@ namespace NoviRefugeesWelcomeProjekat.Model
         {
             this.DatumIzdavanja = di;
             this.Dijagnoza = dijag;
-            Izbjeglice = new List<Izbjeglica>();
+            Izbjeglice = new List<Izbjeglica>(); 
+           
         }
+        public ICollection<Izbjeglica>Izbjeglice
+        {
+            get;
+            set;
+        }
+       
+       
     }
 }

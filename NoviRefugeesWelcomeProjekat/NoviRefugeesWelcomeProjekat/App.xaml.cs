@@ -32,8 +32,8 @@ namespace NoviRefugeesWelcomeProjekat
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
-
-        public static MobileServiceClient MobileService = new MobileServiceClient("https://sheky.azurewebsites.net");
+   
+        public static MobileServiceClient MobileService = new MobileServiceClient("https://refugees.azurewebsites.net");
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.

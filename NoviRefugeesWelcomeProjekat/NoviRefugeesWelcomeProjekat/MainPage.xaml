@@ -86,9 +86,9 @@
                 </StackPanel>
 
                 <StackPanel Name="Fifth" Grid.Row="2" Grid.Column="1" Margin="-200,0,0,0">
-                    <TextBox x:Name="txtUsername" Grid.Column="1" Grid.Row="2"  Width="400" Height="40"  HorizontalAlignment="Stretch" Margin="50,12,50,0" TextChanged="TextBox_TextChanged"></TextBox>
-                    <PasswordBox x:Name="txtPassword" Grid.Column="1" Grid.Row="2"  Width="400" Height="40" HorizontalAlignment="Stretch"  Margin="50,12,50,0" InputScope="Password" ></PasswordBox>
-                    <Button Name="LOGIN" Content="LOGIN" Grid.Row="1" Grid.Column="2"  Foreground ="White" FontWeight="Bold"  HorizontalAlignment="Center" Margin="500,-90,10,0" Click="LOGIN_Click" Loaded="PristupniPodaci_Load" Background="#33834545"></Button>
+                    <TextBox x:Name="txtUsername" PlaceholderText="Username" Grid.Column="1" Grid.Row="2"  Width="400" Height="40"  HorizontalAlignment="Stretch" Margin="50,12,50,0" TextChanged="TextBox_TextChanged"></TextBox>
+                    <PasswordBox x:Name="txtPassword" PlaceholderText="Password" Grid.Column="1" Grid.Row="2"  Width="400" Height="40" HorizontalAlignment="Stretch"  Margin="50,12,50,0" InputScope="Password" ></PasswordBox>
+                    <Button Name="btnSpasi" Content="LOGIN" Tapped="btnSpasi_Tapped" Grid.Row="1" Grid.Column="2"  Foreground ="White" FontWeight="Bold"  HorizontalAlignment="Center" Margin="500,-90,10,0" Click="LOGIN_Click" Loaded="PristupniPodaci_Load" Background="#33834545"></Button>
                 </StackPanel>
 
                 <StackPanel Name="Sixth" Grid.Row="1" Grid.Column="2" Margin="20,20,0,0">

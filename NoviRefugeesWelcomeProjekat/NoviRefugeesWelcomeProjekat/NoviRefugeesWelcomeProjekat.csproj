@@ -108,11 +108,24 @@
     <Compile Include="Model\TrzisteRada.cs" />
     <Compile Include="Model\Zdravstvo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\IzbjeglicaOstanakUZemljiViewModel.cs" />
+    <Compile Include="ViewModel\IzbjeglicaViewModel.cs" />
+    <Compile Include="ViewModel\KartonViewModel.cs" />
+    <Compile Include="ViewModel\KorisnikViewModel.cs" />
+    <Compile Include="ViewModel\ObrazovanjeViewModel.cs" />
+    <Compile Include="ViewModel\PravnaProceduraViewModel.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\SimpleCommandManager.cs" />
+    <Compile Include="ViewModel\TrzisteRadaViewModel.cs" />
+    <Compile Include="ViewModel\ZdravstvoViewModel.cs" />
     <Compile Include="View\Obrazovanje.xaml.cs">
       <DependentUpon>Obrazovanje.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Onama.xaml.cs">
       <DependentUpon>Onama.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PravnaProcedura.xaml.cs">
+      <DependentUpon>PravnaProcedura.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TrzisteRada.xaml.cs">
       <DependentUpon>TrzisteRada.xaml</DependentUpon>
@@ -136,15 +149,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\b.png" />
+    <Content Include="Assets\cekic.jpg" />
     <Content Include="Assets\ilma.jpg" />
     <Content Include="Assets\lala.jpg" />
     <Content Include="Assets\nudza.jpg" />
+    <Content Include="Assets\obr.jpg" />
+    <Content Include="Assets\obrazovanje.jpg" />
     <Content Include="Assets\ok.jpg" />
     <Content Include="Assets\okk.jpg" />
     <Content Include="Assets\Onama.png" />
     <Content Include="Assets\pozadina.jpg" />
+    <Content Include="Assets\PP.jpg" />
     <Content Include="Assets\sejla.jpg" />
     <Content Include="Assets\sektor.jpg" />
+    <Content Include="Assets\zdr.jpg" />
+    <Content Include="Assets\zdravstvo.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -171,6 +190,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\PravnaProcedura.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TrzisteRada.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -189,14 +212,25 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="EntityFramework.Commands">
+      <Version>7.0.0-beta6</Version>
+    </PackageReference>
+    <PackageReference Include="EntityFramework.SQLite">
+      <Version>7.0.0-beta6</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Azure.Mobile.Client">
       <Version>4.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp">
+      <Version>1.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.4</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Help\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

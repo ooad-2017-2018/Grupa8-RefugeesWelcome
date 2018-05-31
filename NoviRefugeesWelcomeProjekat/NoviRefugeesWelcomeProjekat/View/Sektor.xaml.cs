@@ -44,5 +44,28 @@ namespace NoviRefugeesWelcomeProjekat
         {
             this.Frame.Navigate(typeof(View.Zdravstvo));
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(View.PravnaProcedura));
+        }
+
+        private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(View.Obrazovanje));
+
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
+
+       
     }
 }

@@ -26,5 +26,10 @@ namespace NoviRefugeesWelcomeProjekat.View
         {
             this.InitializeComponent();
         }
+
+        private void SearchButton__Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Sektor));
+        }
     }
 }

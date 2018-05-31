@@ -30,5 +30,10 @@ namespace NoviRefugeesWelcomeProjekat
         {
 
         }
+
+        private void Button8_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Sektor));
+        }
     }
 }

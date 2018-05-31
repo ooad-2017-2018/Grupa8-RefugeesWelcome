@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:NoviRefugeesWelcomeProjekat"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:viewmodels="using:MenuMD.ViewModels"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
@@ -97,40 +98,44 @@
                 </StackPanel>
 
                 <StackPanel Name="Second" Grid.Row="1" Margin="20,60,0,0" Grid.RowSpan="3">
-                    <TextBox Name="ime"
+                    <TextBox Name="ime" Text="{Binding Path = Izbjeglica.Ime,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
              Width="250" Height="40"
              Foreground ="Blue" FontWeight="Bold"
           Margin="-100,110,165,20" HorizontalAlignment="Stretch" />
 
-                    <TextBox Name="prezime"
+                    <TextBox Name="prezime" Text="{Binding Path = Izbjeglica.Prezime,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
          Width="250" Height="40"
          Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
         Margin="-160,-8,100,280" ></TextBox>
 
-                    <CalendarDatePicker Name="gr"
+                    <CalendarDatePicker Name="gr" Date="{Binding Path = Izbjeglica.DatumRodjenja,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
          Width="250" Height="40"
          Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
         Margin="-258,-309,0,200"/>
 
-                    <TextBox Name="JMBG"
+                    <TextBox Name="JMBG" Text="{Binding Path = Izbjeglica.JMBG,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
          Width="250" Height="40"
          Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
         Margin="-260,-416,0,20" ></TextBox>
 
-                    <TextBox Name="spol"
+                    <TextBox Name="spol" Text="{Binding Path = Izbjeglica.Spol,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
          Width="250" Height="40"
          Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
         Margin="-256,-190,0,200" ></TextBox>
 
-                    <CalendarDatePicker Name="prijem"
+                    <CalendarDatePicker Name="prijem" Date="{Binding Path = Izbjeglica.DatumPrijema,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
          Width="250" Height="40"
          Foreground ="Blue" FontWeight="Bold"  HorizontalAlignment="Stretch"
         Margin="-253,-187,0,200"/>
 
 
-                    <Button Name="Button1" Content="Registruj"
+                    <Button Name="btnSpasi" Content="Registruj" Tapped="btnSpasi_Tapped"
         FontSize="20" Foreground ="Black" FontWeight="Bold"  HorizontalAlignment="Center"
-        Margin="-260,-330,0,0" Click="Button1_Click"></Button>
+        Margin="-260,-330,0,0" Click="btnSpasi_Click" RenderTransformOrigin="0.5,0.5" >
+                        <Button.RenderTransform>
+                            <CompositeTransform SkewX="2.045" TranslateX="0.714"/>
+                        </Button.RenderTransform>
+                    </Button>
                 </StackPanel>
                 <StackPanel Name="Third" Grid.Row="2" Margin="0,130,0,0" Grid.RowSpan="3">
                     <TextBlock Text="PRONAĐI IZBJEGLICU" FontSize="20"
@@ -155,15 +160,15 @@
           Margin="30,100,0,0"/>
                     <Button Name="button"  Content="POŠALJI"
         FontSize="20" Foreground ="Black" FontWeight="Bold"  HorizontalAlignment="Center"
-        Margin="-200,20,0,0"></Button>
+        Margin="-200,20,0,0" Click="button_Click"></Button>
                 </StackPanel>
 
                 <StackPanel Name="Fifth" Grid.Row="3" Grid.Column="2" Margin="-90,-20,0,0" Grid.RowSpan="2">
                     <Button Name="Button2"  Content="IZLAZ"
         FontSize="20" Foreground ="Black" FontWeight="Bold"  HorizontalAlignment="Center"
-        Margin="150,0,0,0"></Button>
+        Margin="150,0,0,0" Click="Button2_Click"></Button>
 
-                  
+
                 </StackPanel>
 
 

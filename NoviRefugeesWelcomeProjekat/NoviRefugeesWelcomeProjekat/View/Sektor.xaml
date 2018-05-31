@@ -54,7 +54,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="1">
+        <ScrollViewer Grid.Row="1" ViewChanged="ScrollViewer_ViewChanged">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -83,7 +83,7 @@
                 </StackPanel>
 
                 <StackPanel Name="Fifth" Grid.Row="1" Grid.Column="1" Margin="20,20,0,0">
-                    <Button Content="PRAVNA PROCEDURA" FontSize="20" Margin="20,120,0,0"  Foreground ="White" FontWeight="Bold"  HorizontalAlignment="Center" ></Button>
+                    <Button Content="PRAVNA PROCEDURA" FontSize="20" Margin="20,120,0,0"  Foreground ="White" FontWeight="Bold"  HorizontalAlignment="Center" Click="Button_Click_3" ></Button>
                 </StackPanel>
 
                 <StackPanel Name="Sixth" Grid.Row="1" Grid.Column="2" >
@@ -95,7 +95,7 @@
                 </StackPanel>
 
                 <StackPanel Name="Eighth" Grid.Row="2" Grid.Column="1" >
-                    <Button Content="OBRAZOVANJE" FontSize="20" Margin="20,120,0,0"   Foreground ="White" FontWeight="Bold"  HorizontalAlignment="Center" ></Button>
+                    <Button Content="OBRAZOVANJE" FontSize="20" Margin="20,120,0,0"   Foreground ="White" FontWeight="Bold"  HorizontalAlignment="Center" Click="Button_Click_4" ></Button>
                 </StackPanel>
 
                 <StackPanel Name="Ninth" Grid.Row="2" Grid.Column="1" >
@@ -103,7 +103,7 @@
                 </StackPanel>
 
                 <StackPanel Name="Tenth" Grid.Row="2" Grid.Column="2" >
-                    <Button Content="IZLAZ"  FontSize="30" Margin="20,120,0,0"  Foreground ="White" FontWeight="Bold"  HorizontalAlignment="Center" ></Button>
+                    <Button Content="IZLAZ"  FontSize="30" Margin="20,120,0,0"  Foreground ="White" FontWeight="Bold"  HorizontalAlignment="Center" Click="Button_Click_5" ></Button>
                 </StackPanel>
             </Grid>
         </ScrollViewer>

@@ -69,16 +69,21 @@
 
                 <StackPanel Name="First" Margin="20,80,0,0">
                     <TextBlock Text="Provjeri status azilanta" Margin="20,150,0,0" Foreground ="Black" FontWeight="Bold" HorizontalAlignment="Stretch" ></TextBlock>
-                    <TextBlock Text="Unesite JMBG" Foreground ="Black" FontWeight="Bold" Margin="40,20,0,0" HorizontalAlignment="Stretch" ></TextBlock>
-                    <TextBox Name="SearchTextBox3" Width="250" Height="20" FontSize="30" Foreground ="Blue" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="0,20,0,0" TextChanged="SearchTextBox_TextChanged" >
+                    <TextBlock Text="Unesite JMBG" Foreground ="Black" FontWeight="Bold" Margin="40,20,0,0" HorizontalAlignment="Stretch" />
+                    <TextBox Name="SearchTextBox3" Width="250" Height="20" FontSize="30"  Foreground ="Blue" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="-100,20,0,0" TextChanged="SearchTextBox_TextChanged" >
                     </TextBox>
-                    <Button Name="SearchButton1" Content="Potvrdi" Foreground ="Black" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,30,10,0"></Button>
+                    <Button Name="SearchButton1" Content="Potvrdi" Foreground ="Black" FontWeight="Bold" HorizontalAlignment="Center" Margin="-90,30,10,0"></Button>
+                    <Button Name="Button8"
+                Content="IZLAZ"
+        FontSize="20" Foreground ="Black" FontWeight="ExtraBold"  HorizontalAlignment="Center"
+        Margin="-100,200,0,0" Click="Button8_Click"  ></Button>
+
                 </StackPanel>
 
 
                 <StackPanel Name="Second" Grid.Column="1" Margin="20,20,0,0">
-                    <TextBlock Text=" TRZISTE RADA" HorizontalAlignment="Center" Foreground ="Black" FontWeight="ExtraBold" Margin="20,50,0,0"></TextBlock>
-                    <Image Source="ms-appx:///Assets/ok.jpg" HorizontalAlignment="Stretch" Width="500" Height="400" Margin="0 50 0 0"></Image>
+                    <TextBlock Text=" TRZISTE RADA" HorizontalAlignment="Center" FontSize="30" Foreground ="Black" FontWeight="ExtraBold" Margin="20,50,0,0"></TextBlock>
+                    <Image Source="ms-appx:///Assets/ok.jpg" HorizontalAlignment="Stretch" Width="400" Height="400" Margin="-50 50 0 0"></Image>
 
                     <Button Name="SearchButton6" Content="Posalji zahtjev poslovnoj jedinici" Foreground ="Black" FontWeight="Bold" HorizontalAlignment="Center" Margin="-30,-0,0,0"></Button>
                 </StackPanel>
@@ -92,8 +97,8 @@
                     <CheckBox x:Name="cb1" Content="Prihvacen" Margin="0,20,0,0" />
                     <CheckBox x:Name="cb2" Content="Odbijen" Margin="120,-30,0,0" />
                     <Button Name="SearchButton4" Content="Prikazi spisak slobodnih poslovnih jedinica" Foreground ="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="50,20,0,0"></Button>
-                    <Image Source="ms-appx:///Assets/okk.jpg" HorizontalAlignment="Stretch" Width="500" Height="170" Margin="0 50 0 0"></Image>
-                    <TextBlock  Margin="0,0,0,0" Text="Ukoliko je odgovor potvrdan, uradi sljedece" Foreground ="Black" FontWeight="Bold" HorizontalAlignment="Stretch" ></TextBlock>
+                    <Image Source="ms-appx:///Assets/okk.jpg"  HorizontalAlignment="Stretch" Width="500" Height="170" Margin="0 20 0 0"></Image>
+                    <TextBlock  Margin="150,0,0,0" Text="Ukoliko je odgovor potvrdan, uradi sljedece" Foreground ="Black" FontWeight="Bold" HorizontalAlignment="Stretch" ></TextBlock>
                     <Button Name="SearchButton5" Content="Prebaci na biro za zaposljavanje" Foreground ="Black" FontWeight="Bold" HorizontalAlignment="Center" Margin="10,30,0,0"></Button>
                 </StackPanel>
 

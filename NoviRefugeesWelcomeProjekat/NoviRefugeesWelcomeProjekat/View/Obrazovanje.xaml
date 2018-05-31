@@ -9,7 +9,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="ms-appx:///Assets/ilma.jpg"/>
+            <ImageBrush ImageSource="ms-appx:///Assets/obrazovanje.jpg"/>
         </Grid.Background>
 
         <VisualStateManager.VisualStateGroups>
@@ -54,7 +54,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="1"  HorizontalAlignment="Left" Margin="0,-22,0,10">
+        <ScrollViewer Grid.Row="1"  HorizontalAlignment="Left" Margin="0,-22,0,10" ViewChanged="ScrollViewer_ViewChanged">
             <Grid>
                 
                 <Grid.RowDefinitions>
@@ -69,25 +69,29 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Name="First" Margin="20,20,0,0">
+                    
                 </StackPanel>
 
                 <StackPanel Name="Second" Grid.Row="1" Margin="20,100,0,0">
-                    <Button Name="SearchButton2" Content="Pokreni postupak ekvivalencije zvanja" Foreground ="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,400,50,0"></Button>
+                    
                 </StackPanel>
-                <StackPanel Name="Third" Grid.Row="2" Margin="50,100,50,0">
+                <StackPanel Name="Third" Grid.Row="2" Margin="100,200,50,0">
                     <TextBlock Text=" Refugees Welcome" HorizontalAlignment="Center" Foreground ="White" FontWeight="Bold" ></TextBlock>
 
                     <Button Name="SearchButton" Content="Unesite JMBG posiljaoca zahtjeva" Foreground ="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,50,10,0"></Button>
                     <TextBox Name="SearchTextBox" Width="250" Height="20" FontSize="40" Foreground ="Blue" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="0,15,0,0" ></TextBox>
-                    <Button Name="SearchButton1" Content="Proslijedi zahtjev obrazovnim ustanovama" Foreground ="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,10,0"></Button>
+                    <Button Name="SearchButton1" Content="Proslijedi zahtjev obrazovnim ustanovama" Foreground ="White" FontWeight="ExtraBold" HorizontalAlignment="Center" Margin="0,10,10,0"></Button>
+                    <TextBlock Text="Zabiljezi odgovor :" Foreground ="White" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="0,100,0,0"></TextBlock>
+                    <CheckBox x:Name="cb1" Foreground="White" Content="Prihvacen" Margin="0,20,0,0" />
+                    <CheckBox x:Name="cb2" Content="Odbijen" Foreground="White" Margin="120,-30,0,0" />
                 </StackPanel>
 
                 <StackPanel Name="Fourth" Grid.Row="0" Margin="20,20,0,0">
-                    <Image Source="ms-appx:///Assets/b.png" Width="300" Height="668" Margin="-100,50,-217,0" VerticalAlignment="Stretch"/>
-                    <Button Name="SearchButton3" Content="Pokreni postupak ekvivalencije zvanja" Foreground ="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="92,500,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
-                        <Button.RenderTransform>
-                            <CompositeTransform ScaleY="-1"/>
-                        </Button.RenderTransform>
+                    <TextBlock  Text="OBRAZOVANJE" FontSize="20"  Margin="100,100,0,0" Foreground="AliceBlue" FontWeight="ExtraBold"></TextBlock>
+                    <Image Source="ms-appx:///Assets/obr.jpg" HorizontalAlignment="Stretch" Width="400" Height="400" Margin="-50 50 0 0"></Image>
+                    <Button Name="SearchButton3" Content="Pokreni postupak ekvivalencije zvanja" Foreground ="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="30,0,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
+                    </Button>
+                    <Button Name="SearchButton4" Content="Izlaz" Foreground ="White" FontWeight="ExtraBold" HorizontalAlignment="Left" Margin="150,100,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Click="SearchButton4_Click">
                     </Button>
                 </StackPanel>
             </Grid>

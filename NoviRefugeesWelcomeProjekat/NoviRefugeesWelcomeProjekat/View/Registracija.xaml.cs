@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,34 +24,41 @@ namespace NoviRefugeesWelcomeProjekat
     /// </summary>
     public sealed partial class Registracija : Page
     {
+        IMobileServiceTable<ViewModel.IzbjeglicaOstanakUZemljiViewModel> izbjeglice= App.MobileService.GetTable<ViewModel.IzbjeglicaOstanakUZemljiViewModel>();
         public Registracija()
         {
             this.InitializeComponent();
+            DataContext = new ViewModel.IzbjeglicaOstanakUZemljiViewModel();
+
+
         }
 
-        private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        private async void Validacija()
         {
-          
-        }
-
-        private async void  Button1_Click(object sender, RoutedEventArgs e)
-        {
-            if (ime.Text == " " || prezime.Text == " " || gr.Date == null || spol.Text == " " || prijem.Date == null)
+            if (ime.Text == "" || prezime.Text == "" || JMBG.Text == "" || gr.Date == null || spol.Text == "" || prijem.Date == null)
             {
                 var dialog = new MessageDialog("Molimo Vas popunite svako polje!");
                 await dialog.ShowAsync();
-            }
-            else
+              
+            }else
             {
-
-                Model.IzbjeglicaOstanakUZemlji iz = new Model.IzbjeglicaOstanakUZemlji(ime.Text, prezime.Text,gr.Date.Value.UtcDateTime, JMBG.Text, spol.Text,prijem.Date.Value.UtcDateTime);
+                Model.IzbjeglicaOstanakUZemlji iz = new Model.IzbjeglicaOstanakUZemlji(ime.Text, prezime.Text, gr.Date.Value.UtcDateTime, JMBG.Text, spol.Text, prijem.Date.Value.UtcDateTime);
                 ViewModel.Sistem.RegistrujIzbjeglicu(iz);
                 ime.Text = "";
                 prezime.Text = "";
                 JMBG.Text = "";
                 spol.Text = "";
             }
-         
+        }
+        private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        {
+          
+        }
+
+        private void btnSpasi_Tapped(object sender, RoutedEventArgs e)
+        {
+          
+
         }
 
         private async void Button3_Click(object sender, RoutedEventArgs e)
@@ -59,12 +67,12 @@ namespace NoviRefugeesWelcomeProjekat
             {
                 var dialog = new MessageDialog("Molimo Vas unesite JMBG!");
                 await dialog.ShowAsync();
-                //metoda koja pretrazuje izbjeglicu, skontati fino taj dio
+               
             }
             else
             {
-                Model.IzbjeglicaOstanakUZemlji iz = new Model.IzbjeglicaOstanakUZemlji(ime.Text, prezime.Text, Convert.ToDateTime(gr.Date), JMBG.Text, spol.Text, Convert.ToDateTime(prijem.Date));
-                ViewModel.Sistem.ObrisiIzbjeglicu(iz);
+                Model.IzbjeglicaOstanakUZemlji iz = new Model.IzbjeglicaOstanakUZemlji(ime.Text, prezime.Text,gr.Date.Value.UtcDateTime, JMBG.Text, spol.Text,prijem.Date.Value.UtcDateTime);
+                ViewModel.Sistem.ObrisiIzbjeglicu(jmbg.Text);
             }
         }
    
@@ -74,6 +82,40 @@ namespace NoviRefugeesWelcomeProjekat
             await dialog1.ShowAsync();
         }
 
+        private async void button_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog1 = new MessageDialog("Zahtjev uspjesno dodan!");
+            await dialog1.ShowAsync();
+        }
 
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Sektor));
+        }
+
+        private void btnSpasi_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ViewModel.IzbjeglicaOstanakUZemljiViewModel i = new ViewModel.IzbjeglicaOstanakUZemljiViewModel
+                {
+                    Ime = ime.Text,
+                    Prezime = prezime.Text,
+                    DatumRodjenja = gr.Date.Value.UtcDateTime,
+                    JMBG = JMBG.Text,
+                    Spol = spol.Text,
+                    DatumPrijema = prijem.Date.Value.UtcDateTime
+                };
+                Validacija();
+                izbjeglice.InsertAsync(i);
+                //MessageDialog msgDialog = new MessageDialog("Uspješno ste registrovali izbjeglicu.");
+                //msgDialog.ShowAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageDialog msgDialogError = new MessageDialog("Error : " + ex.ToString());
+                msgDialogError.ShowAsync();
+            }
+        }
     }
 }

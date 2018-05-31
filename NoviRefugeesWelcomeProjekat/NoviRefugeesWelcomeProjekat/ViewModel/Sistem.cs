@@ -19,18 +19,36 @@ namespace NoviRefugeesWelcomeProjekat.ViewModel
             {
                 if (izbjeglice[i].JMBG == iz.JMBG)
                 {
-                    var dialog = new MessageDialog("Izbjeglica je vec registrovana!");
-                    await dialog.ShowAsync();
+                    //var dialog = new MessageDialog("Izbjeglica je vec registrovana!");
+                    //await dialog.ShowAsync();
                 }
             }
             izbjeglice.Add(iz);
             var dialog1 = new MessageDialog("Izbjeglica je uspješno registrovana!");
             await dialog1.ShowAsync();
+            
          
         }
-        public static void ObrisiIzbjeglicu(Izbjeglica iz)
+        public async static void ObrisiIzbjeglicu(string jmbg)
         {
-            izbjeglice.Remove(izbjeglice.Find(x => x.JMBG == iz.JMBG));
+            bool postoji = false;
+            for (int i = 0; i < izbjeglice.Count; i++)
+            {
+                if (izbjeglice[i].JMBG == jmbg)
+                {
+                    var dialog = new MessageDialog("Izbjeglica je uspješno izbrisana!");
+                    izbjeglice.Remove(izbjeglice.Find(x => x.JMBG == jmbg));
+                    await dialog.ShowAsync();
+                    postoji = true;
+                }
+
+            }
+            if (postoji == false)
+            {
+                var dialog = new MessageDialog("Izbjeglica nije registrovana!");   
+                await dialog.ShowAsync();
+            }
+           
         }
 
     }
