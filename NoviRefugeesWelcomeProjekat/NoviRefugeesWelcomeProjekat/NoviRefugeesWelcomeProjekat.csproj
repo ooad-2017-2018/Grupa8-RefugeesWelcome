@@ -114,6 +114,9 @@
     <Compile Include="ViewModel\KorisnikViewModel.cs" />
     <Compile Include="ViewModel\ObrazovanjeViewModel.cs" />
     <Compile Include="ViewModel\PravnaProceduraViewModel.cs" />
+    <Compile Include="ViewModel\KorisnikProxy.cs" />
+    <Compile Include="ViewModel\IKorisnik.cs" />
+    <Compile Include="ViewModel\RegistracijaSingletonPatern.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\SimpleCommandManager.cs" />
     <Compile Include="ViewModel\TrzisteRadaViewModel.cs" />

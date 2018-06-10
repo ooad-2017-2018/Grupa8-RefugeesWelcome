@@ -8,6 +8,7 @@ namespace NoviRefugeesWelcomeProjekat.Model
 {
     public class PravnaProcedura
     {
+       
         public List<Izbjeglica> izbjeglice;
         public const int MaxBrojIzbjeglica = 100000;
         public const int TrenutanBrojIzbjeglica = 0;

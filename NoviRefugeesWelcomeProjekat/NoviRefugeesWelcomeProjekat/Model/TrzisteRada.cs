@@ -13,7 +13,7 @@ namespace NoviRefugeesWelcomeProjekat.Model
         public string InstitucijaZaposljavanja { get; set; }
         public string ZahtjevZaPosao { get; set; }
         public string OdobrenjeZahtjeva { get; set; }
-
+        
         public TrzisteRada(string doo, string iz, string zp, string oz)
         {
             izbjeglice = new List<Izbjeglica>();
@@ -22,5 +22,7 @@ namespace NoviRefugeesWelcomeProjekat.Model
             this.ZahtjevZaPosao = zp;
             this.OdobrenjeZahtjeva = oz;
         }
+
+  
     }
 }

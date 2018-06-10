@@ -11,9 +11,9 @@ namespace NoviRefugeesWelcomeProjekat.Model
         public List<Karton> Kartoni { get; set; }
         public List<Izbjeglica> Izbjeglice { get; set; }
         public string ZdravstvenaUstanova { get; set; }
-        public string Osiguranje { get; set; }
+        public string Osiguranje { get;  }
         public string Zahtjev { get; set; }
-        public string OdobrenjeZahtjeva { get; set; }
+        public string OdobrenjeZahtjeva { get; set;  }
 
         public Zdravstvo(string z, string o, string zahtjev, string oz)
         {

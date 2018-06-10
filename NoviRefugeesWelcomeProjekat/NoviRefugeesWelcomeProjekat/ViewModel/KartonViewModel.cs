@@ -8,5 +8,6 @@ namespace NoviRefugeesWelcomeProjekat.ViewModel
 {
     class KartonViewModel
     {
+        string IspisiSveIzKartonaUDrugiKarton { get; }
     }
 }
